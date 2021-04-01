@@ -11,8 +11,8 @@
 
 namespace CachetHQ\Cachet\Presenters;
 
-use CachetHQ\Cachet\Dates\DateFactory;
 use CachetHQ\Cachet\Presenters\Traits\TimestampsTrait;
+use CachetHQ\Cachet\Services\Dates\DateFactory;
 use GrahamCampbell\Markdown\Facades\Markdown;
 use Illuminate\Contracts\Support\Arrayable;
 use McCool\LaravelAutoPresenter\BasePresenter;
@@ -123,14 +123,19 @@ class IncidentUpdatePresenter extends BasePresenter implements Arrayable
     {
         switch ($this->wrappedObject->status) {
             case 1: // Investigating
+
                 return 'icon ion-flag oranges';
             case 2: // Identified
+
                 return 'icon ion-alert yellows';
             case 3: // Watching
+
                 return 'icon ion-eye blues';
             case 4: // Fixed
+
                 return 'icon ion-checkmark greens';
             default: // Something actually broke, this shouldn't happen.
+
                 return '';
         }
     }
